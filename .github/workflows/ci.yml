@@ -40,4 +40,4 @@ jobs:
           tags: ghcr.io/unsafesystems/grafana:latest,ghcr.io/unsafesystems/grafana:${{ github.ref_name }},public.ecr.aws/m0m7e8y4/grafana:latest,public.ecr.aws/m0m7e8y4/grafana:${{ github.ref_name }}
           platforms: linux/amd64,linux/arm64
           build-args: |
-            "GRAFANA_VERSION=${{ github.ref_name }}"
+            "GRAFANA_VERSION=${{ github.ref_name:1 }}"
