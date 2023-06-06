@@ -37,7 +37,8 @@ jobs:
         run: |
           echo "${{ github.ref_name }}" >> "version"
           VER=$(cat "version")
-          echo "{grafana_version}=${VER:1}" >> "$GITHUB_ENV"
+          echo "grafana_version=${VER:1}" >> "$GITHUB_ENV"
+          echo "grafana_version=${VER:1}"
       -
         name: Build and push
         uses: docker/build-push-action@v4
