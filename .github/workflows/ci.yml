@@ -29,17 +29,9 @@ jobs:
           password: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         env:
           AWS_REGION: us-east-1
-      - name: Set grafana version
-        run: |
-          echo "${{ github.ref_name }}" >> "version"
-          VER=$(cat "version")
-          echo "grafana_version=${VER:1}" >> "$GITHUB_ENV"
-          echo "grafana_version=${VER:1}"
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
           tags: ghcr.io/unsafesystems/grafana:latest,ghcr.io/unsafesystems/grafana:${{ github.ref_name }},public.ecr.aws/m0m7e8y4/grafana:latest,public.ecr.aws/m0m7e8y4/grafana:${{ github.ref_name }}
           platforms: linux/amd64,linux/arm64
-          build-args: |
-            "GRAFANA_VERSION=${{ env.grafana_version }}"
