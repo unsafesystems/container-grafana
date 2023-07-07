@@ -30,13 +30,14 @@ jobs:
         env:
           AWS_REGION: us-east-1
       - name: Rewrite release version
+        id: version
         run: |
           VERSION=${{ github.ref_name }}
-          echo "VERSION=${VERSION#loki-v}" >> $GITHUB_ENV
+          echo "version=${VERSION#loki-v}" >> $GITHUB_OUTPUT
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           file: "{context}/loki/Dockerfile"
           push: true
-          tags: ghcr.io/unsafesystems/loki:latest,ghcr.io/unsafesystems/${{VERSION}},public.ecr.aws/m0m7e8y4/loki:latest,public.ecr.aws/m0m7e8y4/${{VERSION}}
+          tags: ghcr.io/unsafesystems/loki:latest,ghcr.io/unsafesystems/${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/loki:latest,public.ecr.aws/m0m7e8y4/${{steps.version.outputs.version}}
           platforms: linux/amd64,linux/arm64
