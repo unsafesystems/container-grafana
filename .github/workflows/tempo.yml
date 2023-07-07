@@ -37,7 +37,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          file: "{context}/tempo/Dockerfile"
+          file: "./tempo/Dockerfile"
+          context: "./tempo"
           push: true
           tags: ghcr.io/unsafesystems/tempo:latest,ghcr.io/unsafesystems/${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/tempo:latest,public.ecr.aws/m0m7e8y4/${{steps.version.outputs.version}}
           platforms: linux/amd64,linux/arm64
