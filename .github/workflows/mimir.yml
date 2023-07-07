@@ -36,6 +36,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
+          context: "{{defaultContext}}:mimir"
           push: true
-          tags: ghcr.io/unsafesystems/mimir:latest,ghcr.io/unsafesystems/${VERSION},public.ecr.aws/m0m7e8y4/mimir:latest,public.ecr.aws/m0m7e8y4/${VERSION}
+          tags: ghcr.io/unsafesystems/mimir:latest,ghcr.io/unsafesystems/${{VERSION}},public.ecr.aws/m0m7e8y4/mimir:latest,public.ecr.aws/m0m7e8y4/${{VERSION}}
           platforms: linux/amd64,linux/arm64
