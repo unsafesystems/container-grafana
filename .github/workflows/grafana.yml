@@ -40,5 +40,5 @@ jobs:
           file: "./grafana/Dockerfile"
           context: "./grafana"
           push: true
-          tags: ghcr.io/unsafesystems/grafana:latest,ghcr.io/unsafesystems/grafana:${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/grafana:latest,public.ecr.aws/m0m7e8y4/grafana:${{steps.version.outputs.version}}
+          tags: ghcr.io/unsafesystems/grafana:latest,ghcr.io/unsafesystems/grafana:v${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/grafana:latest,public.ecr.aws/m0m7e8y4/grafana:v${{steps.version.outputs.version}}
           platforms: linux/amd64,linux/arm64
