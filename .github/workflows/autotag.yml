@@ -14,14 +14,14 @@ jobs:
           token: ${{ secrets.PAT }}
 
       - name: Get previous tag
-        id: previoustag
+        id: grafana
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
           fallback: grafana:v0.0.0 # Optional fallback tag to use when no tag can be found
           prefix: grafana:v # Optional prefix to strip from the tag
       - name: Read version from file
         run: |
-          echo "previous_version=${{ steps.previoustag.outputs.tag }}" >> "$GITHUB_ENV"
+          echo "previous_version=${{ steps.grafana.outputs.tag }}" >> "$GITHUB_ENV"
           CURRENT_VERSION=$(head -n 1 "grafana/Dockerfile" | grep "FROM" | cut -d ":" -f 2 | cut -d " " -f 1)
           echo "current_version=grafana:v${CURRENT_VERSION}" >> "$GITHUB_ENV"
       - name: Set new tag
@@ -33,14 +33,14 @@ jobs:
           message: "Release ${{ env.current_version }}"
 
       - name: Get previous tag
-        id: previoustag
+        id: loki
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
           fallback: loki:v0.0.0 # Optional fallback tag to use when no tag can be found
           prefix: loki:v # Optional prefix to strip from the tag
       - name: Read version from file
         run: |
-          echo "previous_version=${{ steps.previoustag.outputs.tag }}" >> "$GITHUB_ENV"
+          echo "previous_version=${{ steps.loki.outputs.tag }}" >> "$GITHUB_ENV"
           CURRENT_VERSION=$(head -n 1 "loki/Dockerfile" | grep "FROM" | cut -d ":" -f 2 | cut -d " " -f 1)
           echo "current_version=loki:v${CURRENT_VERSION}" >> "$GITHUB_ENV"
       - name: Set new tag
@@ -52,14 +52,14 @@ jobs:
           message: "Release ${{ env.current_version }}"
 
       - name: Get previous tag
-        id: previoustag
+        id: mimir
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
           fallback: mimir:v0.0.0 # Optional fallback tag to use when no tag can be found
           prefix: mimir:v # Optional prefix to strip from the tag
       - name: Read version from file
         run: |
-          echo "previous_version=${{ steps.previoustag.outputs.tag }}" >> "$GITHUB_ENV"
+          echo "previous_version=${{ steps.mimir.outputs.tag }}" >> "$GITHUB_ENV"
           CURRENT_VERSION=$(head -n 1 "mimir/Dockerfile" | grep "FROM" | cut -d ":" -f 2 | cut -d " " -f 1)
           echo "current_version=mimir:v${CURRENT_VERSION}" >> "$GITHUB_ENV"
       - name: Set new tag
@@ -71,14 +71,14 @@ jobs:
           message: "Release ${{ env.current_version }}"
 
       - name: Get previous tag
-        id: previoustag
+        id: tempo
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
           fallback: tempo:v0.0.0 # Optional fallback tag to use when no tag can be found
           prefix: tempo:v # Optional prefix to strip from the tag
       - name: Read version from file
         run: |
-          echo "previous_version=${{ steps.previoustag.outputs.tag }}" >> "$GITHUB_ENV"
+          echo "previous_version=${{ steps.tempo.outputs.tag }}" >> "$GITHUB_ENV"
           CURRENT_VERSION=$(head -n 1 "tempo/Dockerfile" | grep "FROM" | cut -d ":" -f 2 | cut -d " " -f 1)
           echo "current_version=tempo:v${CURRENT_VERSION}" >> "$GITHUB_ENV"
       - name: Set new tag
