@@ -40,5 +40,5 @@ jobs:
           file: "./loki/Dockerfile"
           context: "./loki"
           push: true
-          tags: ghcr.io/unsafesystems/loki:latest,ghcr.io/unsafesystems/${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/loki:latest,public.ecr.aws/m0m7e8y4/${{steps.version.outputs.version}}
+          tags: ghcr.io/unsafesystems/loki:latest,ghcr.io/unsafesystems/loki:${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/loki:latest,public.ecr.aws/m0m7e8y4/loki:${{steps.version.outputs.version}}
           platforms: linux/amd64,linux/arm64
