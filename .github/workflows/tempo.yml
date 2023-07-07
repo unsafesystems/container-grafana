@@ -3,7 +3,7 @@ name: tempo
 on:
   push:
     tags:
-      - 'tempo:v*.*.*'
+      - 'tempo-v*.*.*'
 
 jobs:
   buildx:
@@ -29,9 +29,13 @@ jobs:
           password: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         env:
           AWS_REGION: us-east-1
+      - name: Rewrite release version
+        run: |
+          VERSION=${{ github.ref_name }}
+          echo "VERSION=${VERSION#tempo-v}" >> $GITHUB_ENV
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ghcr.io/unsafesystems/tempo:latest,ghcr.io/unsafesystems/${{ github.ref_name }},public.ecr.aws/m0m7e8y4/tempo:latest,public.ecr.aws/m0m7e8y4/${{ github.ref_name }}
+          tags: ghcr.io/unsafesystems/tempo:latest,ghcr.io/unsafesystems/${VERSION},public.ecr.aws/m0m7e8y4/tempo:latest,public.ecr.aws/m0m7e8y4/${VERSION}
           platforms: linux/amd64,linux/arm64
