@@ -36,7 +36,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:grafana"
+          file: "{context}/grafana/Dockerfile"
           push: true
           tags: ghcr.io/unsafesystems/grafana:latest,ghcr.io/unsafesystems/grafana:${{VERSION}},public.ecr.aws/m0m7e8y4/grafana:latest,public.ecr.aws/m0m7e8y4/${VERSION}
           platforms: linux/amd64,linux/arm64
