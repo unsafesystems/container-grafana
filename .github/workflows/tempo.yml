@@ -1,9 +1,9 @@
-name: ci
+name: tempo
 
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'tempo:v*.*.*'
 
 jobs:
   buildx:
@@ -33,5 +33,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ghcr.io/unsafesystems/grafana:latest,ghcr.io/unsafesystems/grafana:${{ github.ref_name }},public.ecr.aws/m0m7e8y4/grafana:latest,public.ecr.aws/m0m7e8y4/grafana:${{ github.ref_name }}
+          tags: ghcr.io/unsafesystems/tempo:latest,ghcr.io/unsafesystems/${{ github.ref_name }},public.ecr.aws/m0m7e8y4/tempo:latest,public.ecr.aws/m0m7e8y4/${{ github.ref_name }}
           platforms: linux/amd64,linux/arm64
