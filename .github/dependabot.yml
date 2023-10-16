@@ -1,6 +1,26 @@
 version: 2
 updates:
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/fluentbit"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "/grafana"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "/loki"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "/mimir"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "/tempo"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "/yace"
+    schedule:
+      interval: "weekly"
