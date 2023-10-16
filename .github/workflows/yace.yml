@@ -40,5 +40,5 @@ jobs:
           file: "./yace/Dockerfile"
           context: "./yace"
           push: true
-          tags: ghcr.io/unsafesystems/yace:latest,ghcr.io/unsafesystems/yace:v${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/yace:latest,public.ecr.aws/m0m7e8y4/yace:v${{steps.version.outputs.version}}
+          tags: ghcr.io/unsafesystems/yace:latest,ghcr.io/unsafesystems/yace:${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/yace:latest,public.ecr.aws/m0m7e8y4/yace:${{steps.version.outputs.version}}
           platforms: linux/amd64,linux/arm64

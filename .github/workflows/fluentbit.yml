@@ -40,5 +40,5 @@ jobs:
           file: "./fluentbit/Dockerfile"
           context: "./fluentbit"
           push: true
-          tags: ghcr.io/unsafesystems/fluentbit:latest,ghcr.io/unsafesystems/fluentbit:v${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/fluentbit:latest,public.ecr.aws/m0m7e8y4/fluentbit:v${{steps.version.outputs.version}}
+          tags: ghcr.io/unsafesystems/fluentbit:latest,ghcr.io/unsafesystems/fluentbit:${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/fluentbit:latest,public.ecr.aws/m0m7e8y4/fluentbit:${{steps.version.outputs.version}}
           platforms: linux/amd64,linux/arm64

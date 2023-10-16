@@ -40,5 +40,5 @@ jobs:
           file: "./tempo/Dockerfile"
           context: "./tempo"
           push: true
-          tags: ghcr.io/unsafesystems/tempo:latest,ghcr.io/unsafesystems/tempo:v${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/tempo:latest,public.ecr.aws/m0m7e8y4/tempo:v${{steps.version.outputs.version}}
+          tags: ghcr.io/unsafesystems/tempo:latest,ghcr.io/unsafesystems/tempo:${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/tempo:latest,public.ecr.aws/m0m7e8y4/tempo:${{steps.version.outputs.version}}
           platforms: linux/amd64,linux/arm64

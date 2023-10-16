@@ -40,5 +40,5 @@ jobs:
           file: "./mimir/Dockerfile"
           context: "./mimir"
           push: true
-          tags: ghcr.io/unsafesystems/mimir:latest,ghcr.io/unsafesystems/mimir:v${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/mimir:latest,public.ecr.aws/m0m7e8y4/mimir:v${{steps.version.outputs.version}}
+          tags: ghcr.io/unsafesystems/mimir:latest,ghcr.io/unsafesystems/mimir:${{steps.version.outputs.version}},public.ecr.aws/m0m7e8y4/mimir:latest,public.ecr.aws/m0m7e8y4/mimir:${{steps.version.outputs.version}}
           platforms: linux/amd64,linux/arm64
