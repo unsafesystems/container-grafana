@@ -118,7 +118,7 @@ jobs:
         run: |
           echo "previous_version=${{ steps.yace.outputs.tag }}" >> "$GITHUB_ENV"
           CURRENT_VERSION=$(head -n 1 "yace/Dockerfile" | grep "FROM" | cut -d ":" -f 2 | cut -d " " -f 1)
-          echo "current_version=yace-v${CURRENT_VERSION}" >> "$GITHUB_ENV"
+          echo "current_version=yace-${CURRENT_VERSION}" >> "$GITHUB_ENV"
       - name: Set new tag
         if: env.previous_version != env.current_version
         uses: rickstaa/action-create-tag@v1
