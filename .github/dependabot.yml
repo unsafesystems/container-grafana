@@ -1,6 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: "docker"
+    directory: "/agent"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
     directory: "/fluentbit"
     schedule:
       interval: "weekly"
