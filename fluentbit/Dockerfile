@@ -1,3 +1,3 @@
-FROM ghcr.io/fluent/fluent-bit:3.0.6
+FROM ghcr.io/fluent/fluent-bit:3.1.3
 
 LABEL org.opencontainers.image.source = "https://github.com/unsafesystems/container-grafana/fluentbit"
